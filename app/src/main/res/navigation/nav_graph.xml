@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/friendlistFragment">
+
+    <fragment
+        android:id="@+id/friendlistFragment"
+        android:name="com.example.messenger.ui.FriendlistFragment"
+        android:label="FriendlistFragment"
+        tools:layout="@layout/fragment_friendslist">
+        <action
+            android:id="@+id/action_friendlistFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.messenger.ui.ChatFragment"
+        android:label="ChatFragment"
+        tools:layout="@layout/fragment_chat">
+        <argument
+            android:name="friendID"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_chatFragment_to_friendlistFragment"
+            app:destination="@id/friendlistFragment" />
+    </fragment>
+</navigation>
